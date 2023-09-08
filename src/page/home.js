@@ -1,6 +1,6 @@
 import React from 'react'
 import SiteFilter from "../components/filter/siteFilter"
-import BlogGrid from '../components/navbar/blogGrids/blogGrid'
+import BlogGrid from '../components/blogGrids/blogGrid'
 function Home() {
   return (
     <>

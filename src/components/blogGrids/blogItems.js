@@ -1,5 +1,5 @@
 import React from 'react'
-import blogimage from "../../../assets/image/git.webp"
+import blogimage from "../../assets/image/git.webp"
 function BlogItems() {
   return (
     <div class="lws-card">
