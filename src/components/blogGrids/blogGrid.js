@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchPosts } from '../../features/posts/postsSlice';
+import Loading from '../ui/Loading';
 import BlogItems from './blogItems'
 
 function BlogGrid() {
@@ -10,10 +11,17 @@ function BlogGrid() {
   useEffect(()=>{
     dispatch(fetchPosts())
   },[dispatch])
+  if(isLoading) return <Loading />
+  if(isError && error) return <span>{error.message}</span>
   return (
-    <div>
-      <BlogItems />
-    </div>
+    <>
+      {
+        !!posts.length && posts?.map((post) =>{
+          return  <BlogItems key={post.id} post={post} />
+        })
+      }
+  
+    </>
   )
 }
 

@@ -3,18 +3,18 @@ import React from 'react'
 import Logo from "../../assets/image/LWSBlog.svg"
 function Header() {
   return (
-    <nav class="py-4 border-b">
-    <div class="navbar-container">
+    <nav className="py-4 border-b">
+    <div className="navbar-container">
     
-      <div class="logo">
+      <div className="logo">
         <a href="index.html">
           <img src={Logo} alt="search" />
         </a>
       </div>
       
-      <div class="auth-buttons">
-        <button class="btn btn-primary">sign in</button>
-        <button class="btn btn-outline">sign up</button>
+      <div className="auth-buttons">
+        <button className="btn btn-primary">sign in</button>
+        <button className="btn btn-outline">sign up</button>
       </div>
     </div>
     </nav>

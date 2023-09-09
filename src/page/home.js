@@ -4,13 +4,13 @@ import BlogGrid from '../components/blogGrids/blogGrid'
 function Home() {
   return (
     <>
-    <section class="wrapper">
+    <section className="wrapper">
     <aside>
       <SiteFilter />
     </aside>
-    <main class="post-container" id="lws-postContainer">
+    <main className="post-container" id="lws-postContainer">
         <BlogGrid />
-        <BlogGrid />
+     
     </main>
   </section>
     </>
