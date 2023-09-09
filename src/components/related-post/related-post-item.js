@@ -1,29 +1,23 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-function RelatedPostItem() {
+function RelatedPostItem({post}) {
   return (
-    <aside>
-    <h4 className="mb-4 text-xl font-medium" id="lws-relatedPosts">Related Posts</h4>
-    <div className="space-y-4 related-post-container">
-     
+
       <div className="card">
-        <a href="post.html">
-          <img src="./images/git.webp" className="card-image" alt="" />
-        </a>
+        <Link to={`/post/${post?.id}`}>
+          <img src={post?.image} className="card-image" alt={post?.title} />
+        </Link>
         <div className="p-4">
-          <a href="post.html" className="text-lg post-title lws-RelatedPostTitle">
-            Top Github Alternatives
-          </a>
+          <Link to={`/post/${post?.id}`} className="text-lg post-title lws-RelatedPostTitle">
+            {post?.title}
+          </Link>
           <div className="mb-0 tags">
-            <span>#python,</span> <span>#tech,</span> <span>#git</span>
+          {post?.tags?.map((tag,i)=> <span key={i}>#{tag}</span>)}
           </div>
-          <p>2010-03-27</p>
+          <p>{post?.createdAt}</p>
         </div>
       </div>
-  
-   
-    </div>
-  </aside>
   )
 }
 
