@@ -1,6 +1,6 @@
 
 import React from 'react'
-import Logo from "../../assets/image/LWSBlog.svg"
+import Logo from "../../assets/image/Logo.png"
 function Header() {
   return (
     <nav className="py-4 border-b">

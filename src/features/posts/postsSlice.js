@@ -8,8 +8,8 @@ const initialState = {
   error:""
 }
 
-export const fetchPosts = createAsyncThunk("posts/postsSlice",async ()=>{
-      const posts=await fetchPostsApi();
+export const fetchPosts = createAsyncThunk("posts/postsSlice",async (filterSave)=>{
+      const posts=await fetchPostsApi(filterSave);
       return posts;
 })
 
