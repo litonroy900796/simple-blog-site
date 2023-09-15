@@ -21,7 +21,14 @@ export const postSlice = createSlice({
     AddLikes:(state,action)=> {
          state=state.post.likes +=1
          
-    } 
+    } ,
+    addSave:(state,action)=> {
+      if(state.post.isSaved === true){
+       state = state.post.isSaved = false
+      }else{
+       state= state.post.isSaved = true 
+      }
+    }
  },
   extraReducers: (builder)=>{
         builder
@@ -45,5 +52,5 @@ export const postSlice = createSlice({
 })
 
 
-export const {AddLikes}=postSlice.actions
+export const {AddLikes ,addSave}=postSlice.actions
 export default postSlice.reducer
