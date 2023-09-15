@@ -17,6 +17,12 @@ export const singleFetchPost = createAsyncThunk("post/postsSlice",async (id)=>{
 export const postSlice = createSlice({
   name: 'post',
   initialState,
+  reducers:{
+    AddLikes:(state,action)=> {
+         state=state.post.likes +=1
+         
+    } 
+ },
   extraReducers: (builder)=>{
         builder
         .addCase(singleFetchPost.pending,(state)=>{
@@ -39,5 +45,5 @@ export const postSlice = createSlice({
 })
 
 
-
+export const {AddLikes}=postSlice.actions
 export default postSlice.reducer

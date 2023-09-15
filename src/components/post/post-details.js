@@ -1,8 +1,11 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { AddLikes } from '../../features/post/postSlice'
 
 function PostDetails({post}) {
   const [isSave,setIsSave]= useState(false)
+  const dispatch = useDispatch();
   function handleSave(){
      if(post?.isSaved === false){
       setIsSave(true)
@@ -12,7 +15,20 @@ function PostDetails({post}) {
        axios.put(`http://localhost:9000/blogs/${post?.id}`,{...post,isSaved:false})
       } 
    }
-   
+      const handleIncrementLikes = () => {
+    dispatch(AddLikes(post.id)); // Update the Redux store first
+    axios.patch(`http://localhost:9000/blogs/${post.id}`, {
+      likes: post.likes, // Increment likes property
+    })
+      .then((response) => {
+        
+      
+      })
+      .catch((error) => {
+        // Handle error
+      });
+  };
+
 
   return (
     <main className="post">
@@ -25,7 +41,7 @@ function PostDetails({post}) {
         {post?.tags?.map((tag,i)=> <span key={i}>#{tag}</span>)}
         </div>
         <div className="btn-group">
-          <button className="like-btn" id="lws-singleLinks">
+          <button onClick={handleIncrementLikes} className="like-btn" id="lws-singleLinks">
             <i className="fa-regular fa-thumbs-up"></i> {post.likes}
           </button>
           <button onClick={handleSave} className={`${post?.isSaved || isSave  ? "active" : ""} save-btn`} id="lws-singleSavedBtn">
